@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Neuseeland Reise - Etappe 20 (Wellington)</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+</head>
+<body>
+<h1>Wellington</h1>
+<h2>The "Windy city"</h2>
+<h3>41°17′S, 174°47′O, am Meer gelegen</h3>
+<div id="map"></div>
+<p class="info">
+Wellington (Māori: Te Whanga-nui-a-Tara) ist die Hauptstadt von Neuseeland und, zusammen mit den angrenzenden Städten Lower Hutt, Upper Hutt und Porirua, nach Auckland der zweitgrößte Ballungsraum des Landes. Wellington, offiziell Wellington City genannt, befindet sich an der Südspitze der neuseeländischen Nordinsel und hat rund 191.000 Einwohner (Stand 2013).Das Gebiet in und um Wellington stellt das politische und kulturelle Zentrum des Landes dar und ist Mittelpunkt der neuseeländischen Film- und Theaterindustrie. Der Rang als Kulturhauptstadt Neuseelands ist jedoch durch das in diesem Bereich aufstrebende Auckland bedroht.Bekanntheit erlangte Wellington auch für seine malerische Lage zwischen Naturhafen und grünen Hügellandschaften, die in die hügeligen Vororte eingebettet sind und in denen man noch viele Villen im Kolonialstil vorfindet (aus Wikipedia).
+</p>
+<figure>
+	<img src="wellington.jpg" alt="Wellington" />
+	<figcaption>
+	Panorama von Wellington mit Blick auf den Hafen am Eingang zur Cook Strait. Quelle: <a href="https://de.wikipedia.org/wiki/Wellington#/media/File:Wellington_Panorama_View.jpg">Wikipedia</a>
+	</figcaption>
+</figure>
+<p class="info">
+Wellington befindet sich in der gemäßigten Klimazone. Der Spitzname der Stadt, Windy City, sagt einiges über die klimatischen Verhältnisse der Stadt aus. Die exponierte Lage sorgt für starke Windströmungen. Außerdem ist Wellington die einzige Hauptstadt der Erde, die innerhalb des Einflussbereichs der Roaring Forties (deutsch: Donnernde Vierziger) liegt. Der Begriff „Roaring Forties“ bezeichnet eine Zone starker Westwinddriften zwischen 40° und 50° südlicher Breite. Trotz dieser besonderen Lage treten schwere Stürme nur im Herbst und im Winter auf (aus Wikipedia).
+</p>
+<figure>
+	<img src="klima.jpg" alt="Klimatabelle" />
+	<figcaption>
+		Monatliche Durchschnittstemperaturen und -niederschläge für Wellington. Quelle: <a href="http://worldweather.wmo.int/046/c00298.htm">MetService</a>
+	</figcaption>
+</figure>
+
+<h4 class="links">Links</h4>
+<ul class="links">
+<li><a href="https://de.wikipedia.org/wiki/Wellington">Wikipedia Wellington</a></li>
+</ul>
+
+<nav>
+<a class="previous" href="../19/index.html">Etappe 19</a>
+<span class="current">Wellington</span>
+<a class="next" href="../21/index.html">Etappe 21</a>
+</nav>
+
+<p class="author">Klaus Förster</p>
+    
+<script>
+    var map = L.map('map');
+    map.setView([-41.28664, 174.77557], 11);
+    
+    var openstreetmap = L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png");
+    openstreetmap.addTo(map);
+    
+    var marker = L.marker([-41.28664, 174.77557]);
+    marker.addTo(map);
+    
+    marker.bindPopup("Wellington");
+
+    
+</script>
+    
+</body>
+</html>
