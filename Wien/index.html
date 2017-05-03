@@ -232,6 +232,8 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/MapID/997/256/{z}/{x}/{y}.png?acces
          L.circle(e.latlng, radius).addTo(map);
          }
         
+        map.on('locationfound', onLocationFound);
+        
     </script>
 
 </body>
