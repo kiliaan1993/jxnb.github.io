@@ -14,6 +14,7 @@
 	<script src="data/adlerwegetappe06.js"></script>
 	<script src="js/leaflet-elevation/leaflet.elevation-0.0.4.min.js"></script>
 	<script src="https://d3js.org/d3.v3.min.js"></script>
+	<!-- <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script> -->
 
     <style>
         body {
@@ -85,9 +86,12 @@
 
         // leaflet-hash aktivieren
         var hash = new L.Hash(map);
-
 		
-		var el = L.control.elevation();
+        // var etappe = omnivore.gpx('data/AdlerwegEtappe06.gpx').addTo(map);
+		
+		var el = L.control.elevation({
+		  theme: "steelblue-theme"
+		  });
         el.addTo(map);
 	    L.geoJSON(window.etappe06, {
 		   onEachFeature: el.addData.bind(el)
