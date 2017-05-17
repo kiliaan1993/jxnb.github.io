@@ -8,9 +8,12 @@
     <title>basemap.at mit leaflet-hash Plugin</title>
 
     <link rel="stylesheet" href="js/leaflet/leaflet.css" />
+	<link rel="stylesheet" href="js/leaflet-elevation/leaflet.elevation-0.0.4.css" />
     <script src="js/leaflet/leaflet.js"></script>
     <script src="js/leaflet-hash/leaflet-hash.js"></script>
 	<script src="data/adlerwegetappe06.js"></script>
+	<script src="js/leaflet-elevation/leaflet.elevation-0.0.4.min.js"></script>
+	<script src="https://d3js.org/d3.v3.min.js"></script>
 
     <style>
         body {
@@ -82,8 +85,13 @@
 
         // leaflet-hash aktivieren
         var hash = new L.Hash(map);
+
 		
-	    L.geoJSON(window.etappe06).addTo(map);
+		var el = L.control.elevation();
+        el.addTo(map);
+	    L.geoJSON(window.etappe06, {
+		   onEachFeature: el.addData.bind(el)
+		   }).addTo(map);
 		
 		var huts = [ 
 		    L.marker([47.5043203, 11.8831971], {title: "Gasthaus Haaser", icon: L.icon({iconUrl: 'icons/hut.png'}) }),
@@ -96,7 +104,16 @@
 		for (var i=0; i < huts.length; i++) {
 		    hutsLayer.addLayer(huts[i]);
 		}
-		hutsLayer.addTo(map);
+		
+		//hutsLayer.addTo(map);
+		
+	    map.on("zoomend", function() {
+		    if (map.getZoom() >= 15) {
+			       map.addLayer(hutsLayer);
+				} else {
+				   map.removeLayer(hutsLayer);
+				}		
+		});
 
     </script>
 
