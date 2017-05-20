@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-    <title>basemap.at mit leaflet-hash Plugin</title>
+    <title>Adlerweg Etappe 6</title>
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="js/leaflet/leaflet.css" />
@@ -14,8 +14,8 @@
     <script src="js/leaflet-hash/leaflet-hash.js"></script>
 	<script src="data/adlerwegetappe06.js"></script>
 	<script src="js/leaflet-elevation/leaflet.elevation-0.0.4.min.js"></script>
-	<script src="https://d3js.org/d3.v3.min.js"></script>
-	<!-- <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script> -->
+	<script src="js/d3js/d3.v3.min.js"></script>
+	<script src='js/leaflet-omnivore/leaflet-omnivore.js'></script>
 
     <style>
            /* body {
@@ -82,6 +82,67 @@
             imperial: false
         }).addTo(map);
 
+        // leaflet-hash aktivieren
+        var hash = new L.Hash(map);
+		
+		var elevation = L.control.elevation({
+		  theme: "steelblue-theme",
+          position: "bottomleft"
+        });
+        elevation.addTo(map);
+	    //L.geoJSON(window.etappe06, {
+		//   onEachFeature: el.addData.bind(el)
+		//   }).addTo(map);
+        
+        var etappeGPX = omnivore.gpx('data/AdlerwegEtappe06.gpx').addTo(map);
+		
+        etappeGPX.on('ready', function () {
+            var markup = '<h3>Adlerweg-Etappe 1: St. Johann – Gaudeamushütte</h3>';
+            markup += '<li>Ausgangspunkt: Gasthof Gwercherwirt</li>';
+            markup += '<li>Endpunkt: Gasthof Waldhäusl</li>';
+            markup += '<li>Höhenmeter bergauf: 1100</li>';
+            markup += '<li>Höhenmeter bergab: 780</li>';
+            markup += '<li>Höchster Punkt: 1327</li>';
+            markup += '<li>Schwierigkeitsgrad: leicht</li>';
+            markup += '<li>Streckenlänge (in km): 18</li>';
+            markup += '<li>Gehzeit (in Stunden): 3,5</li>';
+            markup += '<li>Einkehrmöglichkeiten: Gwercherwirt, Gasthof Waldhäusl</li>';
+            markup += '<li>ID in GPS-Track: A06</li>';
+            markup += '<li><a href="http://www.tirol.at/reisefuehrer/sport/wandern/adlerweg">Weitere Informationen</a></li>';
+            etappeGPX.bindPopup(markup, { maxWidth : 450 });
+            
+            map.fitBounds(etappeGPX.getBounds());
+           
+            etappeGPX.eachLayer(function(layer) {
+                elevation.addData(layer.feature);
+            });
+        });
+
+		var huts = [ 
+            L.marker([47.5187834, 11.8971923], {title: "STARTPUNKT: Gasthof Gwercherwirt", icon: L.icon( { iconUrl: 'icons/hut.png'}) }),
+			L.marker([47.5215446, 11.787196], {title: "ENDPUNKT: Gasthof Waldhäusl", icon: L.icon( { iconUrl: 'icons/hut.png'}) }),
+		    L.marker([47.5043203, 11.8831971], {title: "Gasthaus Haaser", icon: L.icon({iconUrl: 'icons/hut.png'}) }),
+			L.marker([47.5078752, 11.8435435], {title: "Lahnalm", icon: L.icon( { iconUrl: 'icons/hut.png'}) }),
+			L.marker([47.5195214, 11.7954273], {title: "Enterhof", icon: L.icon( { iconUrl: 'icons/hut.png'}) }),
+
+		];
+        
+        console.log(huts.length)
+		var hutsLayer = L.featureGroup();
+		for (var i=0; i < huts.length; i++) {
+		    hutsLayer.addLayer(huts[i]);
+		}
+		
+		hutsLayer.addTo(map);
+        
+        	    //map.on("zoomend", function() {
+		//    if (map.getZoom() >= 15) {
+		//	       map.addLayer(hutsLayer);
+		//		} else {
+		//		   map.removeLayer(hutsLayer);
+		//		}		
+		// });
+        
         // WMTS-Layer Auswahl hinzufügen
         var layerControl = L.control.layers({
             "basemap.at - STANDARD": layers.geolandbasemap,
@@ -90,42 +151,10 @@
             "basemap.at - HIGH-DPI": layers.bmaphidpi,
             "basemap.at - ORTHOFOTO": layers.bmaporthofoto30cm,
             "OpenStreetMap": layers.osm,
+        },{
+            "Adlerweg Etappe 06": etappeGPX
         }).addTo(map);
-
-        // leaflet-hash aktivieren
-        var hash = new L.Hash(map);
 		
-        // var etappe = omnivore.gpx('data/AdlerwegEtappe06.gpx').addTo(map);
-		
-		var el = L.control.elevation({
-		  theme: "steelblue-theme"
-		  });
-        el.addTo(map);
-	    L.geoJSON(window.etappe06, {
-		   onEachFeature: el.addData.bind(el)
-		   }).addTo(map);
-		
-		var huts = [ 
-		    L.marker([47.5043203, 11.8831971], {title: "Gasthaus Haaser", icon: L.icon({iconUrl: 'icons/hut.png'}) }),
-			L.marker([47.5078752, 11.8435435], {title: "Lahnalm", icon: L.icon( { iconUrl: 'icons/hut.png'}) }),
-			L.marker([47.5195214, 11.7954273], {title: "Enterhof", icon: L.icon( { iconUrl: 'icons/hut.png'}) }),
-			L.marker([47.5215446, 11.787196], {title: "Gasthof Waldhäusl", icon: L.icon( { iconUrl: 'icons/hut.png'}) }),
-			L.marker([47.5187834, 11.8971923], {title: "Gasthof Gwercherwirt", icon: L.icon( { iconUrl: 'icons/hut.png'}) })
-		];
-		var hutsLayer = L.featureGroup();
-		for (var i=0; i < huts.length; i++) {
-		    hutsLayer.addLayer(huts[i]);
-		}
-		
-		//hutsLayer.addTo(map);
-		
-	    map.on("zoomend", function() {
-		    if (map.getZoom() >= 15) {
-			       map.addLayer(hutsLayer);
-				} else {
-				   map.removeLayer(hutsLayer);
-				}		
-		});
 
     </script>
 
