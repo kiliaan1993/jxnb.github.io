@@ -38,6 +38,38 @@
     <p>Von Pinegg geht es über zwei Brücken – der Brandenberger Ache und danach der Steinberger Ache – zum ersten Anstieg dieser Etappe. Er verläuft vorerst über einen Wanderweg, dann über die Forststraße zum Jägersteig der nach Aschau, einem Ortsteil von Brandenberg, führt. Man durchwandert das kleine Dorfzentrum auf der Hauptstraße bis kurz vor dem Gasthaus Haaser. Von hier aus geht es den Burgstallgraben hinauf bis zum letzten Bauernhof „Wimm". Nach dem Weiderost rechts und weiter der Beschilderung folgen bis zum Wimmerjoch. Hier, am höchsten Punkt der Etappe, lohnt es sich, auf den grünen Almwiesen eine kleine Pause einzulegen. Anschließend links halten und abwärts in Richtung Lahnalm wandern. Kurz vor der Alm der Beschilderung zum Weißenbachgraben folgen. Sobald man den Weißenbach, den Grenzbach zwischen Brandenberg und Steinberg, überquert hat, ist es nur noch ein kurzer Weg zum Enterhof, einem stattlichen Bauernhaus mit Übernachtungsmöglichkeit. Diesen lässt man „links liegen“ und folgt der Straße hinunter ins Steinberger Loch, wobei man zum zweiten Mal auf dieser Etappe die Steinberger Ache überquert. Danach bei der ersten Möglichkeit rechts auf den Hinterbergweg einbiegen. Diesem in Richtung Norden bis nach Vordersteinberg folgen, die Straße überqueren und weiterwandern zum Bärenwaldweg. Nun nur noch diesem Weg folgen und den Ausklang des Wandertages in der idyllisch gelegenen Jausenstation Gasthof Waldhäusl am westlichen Ortsrand von Steinberg genießen. Eine bequeme Übernachtungsmöglichkeit gibt es hier auch.</p>
     
     <div id="map"></div>
+	<select id="etappen">
+	<option value="AdlerwegEtappe01.gpx">Adlerweg Etappe 1 </option>
+	<option value="AdlerwegEtappe02.gpx">Adlerweg Etappe 2 </option>
+	<option value="AdlerwegEtappe03.gpx">Adlerweg Etappe 3 </option>
+	<option value="AdlerwegEtappe04.gpx">Adlerweg Etappe 4 </option>
+	<option value="AdlerwegEtappe05.gpx">Adlerweg Etappe 5 </option>
+	<option value="AdlerwegEtappe06.gpx">Adlerweg Etappe 6 </option>
+	<option value="AdlerwegEtappe07.gpx">Adlerweg Etappe 7 </option>
+	<option value="AdlerwegEtappe08.gpx">Adlerweg Etappe 8 </option>
+	<option value="AdlerwegEtappe09.gpx">Adlerweg Etappe 9 </option>
+	<option value="AdlerwegEtappe10.gpx">Adlerweg Etappe 10</option>
+	<option value="AdlerwegEtappe11.gpx">Adlerweg Etappe 11</option>
+	<option value="AdlerwegEtappe12.gpx">Adlerweg Etappe 12</option>
+	<option value="AdlerwegEtappe13.gpx">Adlerweg Etappe 13</option>
+	<option value="AdlerwegEtappe14.gpx">Adlerweg Etappe 14</option>
+	<option value="AdlerwegEtappe15.gpx">Adlerweg Etappe 15</option>
+	<option value="AdlerwegEtappe16.gpx">Adlerweg Etappe 16</option>
+	<option value="AdlerwegEtappe17.gpx">Adlerweg Etappe 17</option>
+	<option value="AdlerwegEtappe18.gpx">Adlerweg Etappe 18</option>
+	<option value="AdlerwegEtappe19.gpx">Adlerweg Etappe 19</option>
+	<option value="AdlerwegEtappe20.gpx">Adlerweg Etappe 20</option>
+	<option value="AdlerwegEtappe21.gpx">Adlerweg Etappe 21</option>
+	<option value="AdlerwegEtappe22.gpx">Adlerweg Etappe 22</option>
+	<option value="AdlerwegEtappe23.gpx">Adlerweg Etappe 23</option>
+	<option value="AdlerwegEtappe24.gpx">Adlerweg Etappe 24</option>
+	<option value="AdlerwegEtappe25.gpx">Adlerweg Etappe 25</option>
+	<option value="AdlerwegEtappeO1.gpx">Adlerweg Etappe o1</option>
+	<option value="AdlerwegEtappeO2.gpx">Adlerweg Etappe o2</option>
+	<option value="AdlerwegEtappeO3.gpx">Adlerweg Etappe o3</option>
+	<option value="AdlerwegEtappeO4.gpx">Adlerweg Etappe o4</option>
+	<option value="AdlerwegEtappeO5.gpx">Adlerweg Etappe o5</option>
+	</select>
     
     <p>Autor: <a href="https://github.com/jxnb/jxnb.github.io">Johannes Exenberger</a></p> 
 
@@ -96,30 +128,96 @@
 		//   onEachFeature: el.addData.bind(el)
 		//   }).addTo(map);
         
-        var etappeGPX = omnivore.gpx('data/AdlerwegEtappe06.gpx').addTo(map);
-		
-        etappeGPX.on('ready', function () {
-            var markup = '<h3>Adlerweg-Etappe 06: Pinegg - Steinberg am Rofan</h3>';
-            markup += '<li>Ausgangspunkt: Gasthof Gwercherwirt</li>';
-            markup += '<li>Endpunkt: Gasthof Waldhäusl</li>';
-            markup += '<li>Höhenmeter bergauf: 1100</li>';
-            markup += '<li>Höhenmeter bergab: 780</li>';
-            markup += '<li>Höchster Punkt: 1327</li>';
-            markup += '<li>Schwierigkeitsgrad: leicht</li>';
-            markup += '<li>Streckenlänge (in km): 18</li>';
-            markup += '<li>Gehzeit (in Stunden): 3,5</li>';
-            markup += '<li>Einkehrmöglichkeiten: Gwercherwirt, Gasthof Waldhäusl</li>';
-            markup += '<li>ID in GPS-Track: A06</li>';
-            markup += '<li><a target="blank" href="http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-6-pinegg-steinberg-am-rofan">Weitere Informationen</a></li>';
-            etappeGPX.bindPopup(markup, { maxWidth : 450 });
-            
-            map.fitBounds(etappeGPX.getBounds());
-           
-            etappeGPX.eachLayer(function(layer) {
-                elevation.addData(layer.feature);
-            });
-        });
+		var elevationColor = L.featureGroup().addTo(map);
 
+	
+		
+		function loadTrack(track)  {
+			etappeGPX = omnivore.gpx('data/'+track).addTo(map);
+			
+			etappeGPX.on('ready', function () {
+				var markup = '<h3>Adlerweg-Etappe 06: Pinegg - Steinberg am Rofan</h3>';
+				markup += '<li>Ausgangspunkt: Gasthof Gwercherwirt</li>';
+				markup += '<li>Endpunkt: Gasthof Waldhäusl</li>';
+				markup += '<li>Höhenmeter bergauf: 1100</li>';
+				markup += '<li>Höhenmeter bergab: 780</li>';
+				markup += '<li>Höchster Punkt: 1327</li>';
+				markup += '<li>Schwierigkeitsgrad: leicht</li>';
+				markup += '<li>Streckenlänge (in km): 18</li>';
+				markup += '<li>Gehzeit (in Stunden): 3,5</li>';
+				markup += '<li>Einkehrmöglichkeiten: Gwercherwirt, Gasthof Waldhäusl</li>';
+				markup += '<li>ID in GPS-Track: A06</li>';
+				markup += '<li><a target="blank" href="http://www.tirol.at/reisefuehrer/sport/wandern/wandertouren/a-adlerweg-etappe-6-pinegg-steinberg-am-rofan">Weitere Informationen</a></li>';
+				etappeGPX.bindPopup(markup, { maxWidth : 450 });
+				
+				//Ausschnitt setzen
+				
+				map.fitBounds(etappeGPX.getBounds());
+				
+				//Höhenprofil erzeugen
+			    elevation.clear();
+				//elevationColor.clear();
+				etappeGPX.eachLayer(function(layer) {
+					elevation.addData(layer.feature);
+					
+					var pts = layer.feature.geometry.coordinates;
+			
+					for (var i = 1; i < pts.length; i += 1) {
+						//console.log(pts[i]);
+					   // console.log(pts[i-1]);
+			   
+					// Entfernung bestimmen
+					var dist = map.distance(
+						[ pts[i][1],pts[i][0] ],
+						[ pts[i-1][1],pts[i-1][0] ]
+					).toFixed(0);
+					// console.log(dist);
+					
+					var delta = pts[i][2] - pts [i-1][2];
+					//console.log(delta,"Höhenmeter auf",dist,"m Strecke");
+					
+					var rad = Math.atan(delta/dist);
+					var deg = (rad * (180 / Math.PI)).toFixed(1);
+					//console.log(deg);
+					
+					//Farbe: colorbrewer2.org ! ! !
+			
+					var farbe;
+					var steigung;
+					switch(true) { // checks if condition is true, not for certain values of a variable
+						case (deg >= 20) :  farbe = "#bd0026"; break;
+						case (deg >= 15) :  farbe = "#f03b20"; break;
+						case (deg >= 10) :  farbe = "#fd8d3c"; break;
+						case (deg >= 5) :  farbe = "#feb24c"; break;
+						case (deg >= 1) :  farbe = "#fed976"; break;
+						case (deg >= -1) :  farbe = "yellow"; break;
+						case (deg >= -5) :  farbe = "#d9f0a3"; break;
+						case (deg >=-10) :  farbe = "#addd8e"; break;
+						case (deg >=-15) :  farbe = "#78c679"; break;
+						case (deg >= -20) :  farbe = "#31a354"; break;
+						case (deg < -20) :  farbe = "#006837"; break;
+					}
+					 //console.log(deg,farbe);
+
+					 //Linie zeichnen
+					  var pointA = new L.LatLng(pts[i][1],pts[i][0]);
+					  var pointB = new L.LatLng(pts[i-1][1],pts[i-1][0]);
+					  var pointList = [pointA, pointB];
+				   
+					  var firstpolyline = new L.Polyline(pointList, {
+						 color: farbe,
+						 weight: 6,
+						 opacity: 1,
+						 smoothFactor: 1
+
+					  });
+					  firstpolyline.addTo(elevationColor);
+						
+				  }
+					
+				});
+			});
+        }
 		var marker = [ 
             
             L.marker([47.5187834, 11.8971923], {title: "STARTPUNKT: Gasthof Gwercherwirt", icon: L.icon( { iconUrl: 'icons/star.png', iconAnchor: [16, 37] }) }),
@@ -136,7 +234,7 @@
 		    markerLayer.addLayer(marker[i]);
 		}
 		
-		markerLayer.addTo(map);
+		// markerLayer.addTo(map);
         
         	    //map.on("zoomend", function() {
 		//    if (map.getZoom() >= 15) {
@@ -145,7 +243,7 @@
 		//		   map.removeLayer(hutsLayer);
 		//		}		
 		// });
-        
+		
         // WMTS-Layer Auswahl hinzufügen
         var layerControl = L.control.layers({
             "basemap.at - STANDARD": layers.geolandbasemap,
@@ -155,11 +253,21 @@
             "basemap.at - ORTHOFOTO": layers.bmaporthofoto30cm,
             "OpenStreetMap": layers.osm,
         },{
-            "Adlerweg Etappe 06": etappeGPX,
-            "Marker": markerLayer
+		   "Steigungen": elevationColor
+           // "Adlerweg Etappe 06": etappeGPX,
+           // "Marker": markerLayer
         }).addTo(map);
 		
-
+		//zwischen einzelnen Etappen hin und her schalten
+		var etappenSelektor = document.getElementById("etappen");
+		//console.log("Selector: ", etappenSelektor);
+		etappenSelektor.onchange = function(evt){
+		   console.log("Change event: ", evt);
+		   console.log("GPX Track laden: ", etappenSelektor[etappenSelektor.selectedIndex].value);
+		   loadTrack(etappenSelektor[etappenSelektor.selectedIndex].value);
+		}
+		loadTrack("AdlerwegEtappe01.gpx");
+		
     </script>
 
 </body>
