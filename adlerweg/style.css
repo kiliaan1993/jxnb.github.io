@@ -3,6 +3,7 @@ h1 {
     font-size: 30px;
     margin: auto;
     text-align: center;
+	text-transform: uppercase;
 }
 
 h2 {
